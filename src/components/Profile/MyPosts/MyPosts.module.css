@@ -1,0 +1,29 @@
+.postArea {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.postAdder {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.postAdder textarea {
+    background-color: #cdcdec;
+    border-radius: 10px;
+    width: 400px;
+    margin-right: 20px;
+}
+
+.postAdder button {
+    width: 200px;
+    height: 40px;
+    background-color: #cdcdec;
+    border-radius: 15px;
+    border: none;
+
+}

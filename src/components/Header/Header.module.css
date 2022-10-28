@@ -1,0 +1,13 @@
+.header {
+    grid-area: header;
+    background: linear-gradient(gold, white)
+
+}
+
+.header img {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    justify-content: flex-start;
+    padding-left: 20px;
+}
