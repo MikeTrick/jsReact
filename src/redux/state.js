@@ -92,21 +92,19 @@ let store = {
             this._state.profilePage.newPostText = ('');
             this._callSubscriber(this._state);
         } else if (action.type === 'ADD-MESSAGE') {
-            alert('sss')
             let newMessage = {
                 id: this._state.messagesPage.messagesData.length + 1,
                 message: this._state.messagesPage.newMessageText
             }
             this._state.messagesPage.messagesData.push(newMessage)
+            this._state.messagesPage.newMessageText = ('');
             this._callSubscriber(this._state)
         } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
             this._state.profilePage.newPostText = action.newPostText;
             this._callSubscriber();
         } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
-            alert('dfdfbjdf')
             this._state.messagesPage.newMessageText = action.newMessageText;
             this._callSubscriber();
-
         }
     }
 
