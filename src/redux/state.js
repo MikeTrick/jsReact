@@ -1,7 +1,8 @@
-let ADD_POST = 'ADD-POST';
-let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-let ADD_MESSAGE = 'ADD-MESSAGE'
-let UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT'
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+
 
 let store = {
 
@@ -82,7 +83,7 @@ let store = {
     },
 
     dispatch: function (action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: this._state.profilePage.posts.length + 1,
                 message: this._state.profilePage.newPostText,
@@ -91,39 +92,37 @@ let store = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostText = ('');
             this._callSubscriber(this._state);
-        } else if (action.type === 'ADD-MESSAGE') {
-            alert('sss')
+        } else if (action.type === ADD_MESSAGE) {
             let newMessage = {
                 id: this._state.messagesPage.messagesData.length + 1,
                 message: this._state.messagesPage.newMessageText
             }
             this._state.messagesPage.messagesData.push(newMessage)
+            this._state.messagesPage.newMessageText = ('');
             this._callSubscriber(this._state)
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newPostText;
             this._callSubscriber();
-        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
-            alert('dfdfbjdf')
+        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
             this._state.messagesPage.newMessageText = action.newMessageText;
             this._callSubscriber();
-
         }
     }
-
 
 }
 
 export const addPostActionCreator = () => {
-    return {ADD_POST}
+    return {type: ADD_POST}
 }
 export const updateNewPostTextActionCreator = (text) => {
-    return {UPDATE_NEW_POST_TEXT, newPostText: text}
+    return {type: UPDATE_NEW_POST_TEXT, newPostText: text}
 }
 export const addMessageActionCreator = () => {
-    return {ADD_MESSAGE}
+    return {type: ADD_MESSAGE}
 }
 export const updateNewMessageTextActionCreator = (message) => {
-    return {UPDATE_NEW_MESSAGE_TEXT, newMessageText: message}
+    return {type: UPDATE_NEW_MESSAGE_TEXT, newMessageText: message}
+
 }
 
 
