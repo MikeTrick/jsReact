@@ -1,6 +1,6 @@
 import React from "react";
 import Classes from './Header.module.css';
-import CarLogo from '../Sedan-PNG-HD.png';
+import CarLogo from '../Sedan-PNG-HD.png'
 
 export const Header = () => {
     return (
