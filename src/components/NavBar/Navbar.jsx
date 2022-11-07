@@ -31,6 +31,10 @@ export const Navbar = (props) => {
                      className={navData => navData.isActive ? Classes.active : Classes.item}>Settings</NavLink>
         </div>
         <div className={Classes.item}>
+            <NavLink to='photos'
+                     className={navData => navData.isActive ? Classes.active : Classes.item}>Photos</NavLink>
+        </div>
+        <div className={Classes.item}>
         <NavLink to='videos'
                  className={navData => navData.isActive ? Classes.active : Classes.item}>Videos</NavLink>
     </div>
