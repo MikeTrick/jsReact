@@ -2,13 +2,13 @@ import './App.css';
 import {Header} from "./components/Header/Header";
 import {Navbar} from "./components/NavBar/Navbar";
 import {Profile} from "./components/Profile/Profile";
-import {Dialogs} from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route, Routes,} from "react-router-dom";
 import {Music} from "./components/Music/Music";
 import {News} from "./components/News/News";
 import {Settings} from "./components/Settings/Settings";
 import {Videos} from "./components/Videos/Videos";
 import {Photos} from "./components/Photos/Photos";
+import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
 
 const App = (props) => {
 
@@ -20,11 +20,11 @@ const App = (props) => {
                 <div className="app-wrapper-content">
                     <Routes>
                         <Route path='profile/*'
-                               element={<Profile state={props.appState.profilePage}
+                               element={<Profile state={props.appState}
                                                  dispatch={props.dispatch}
                                />}/>
                         <Route path='dialogs/*'
-                               element={<Dialogs
+                               element={<DialogsContainer
                                    state={props.appState.messagesPage}
                                    dispatch={props.dispatch}/>}/>
                         <Route path='music/*' element={<Music/>}/>
