@@ -15,7 +15,7 @@ export const Dialogs = (props) => {
     let newMessage = React.createRef()
 
     let addMessage = () => {
-        props.addMesage()
+        props.addMessage()
 
     }
 
