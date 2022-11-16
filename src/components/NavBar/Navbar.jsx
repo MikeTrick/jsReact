@@ -8,7 +8,7 @@ console.log(Classes);
 export const Navbar = (props) => {
 
     let friendsElement = props.state.friendsData
-        .map(f=> <Friends name={f.name} familyName={f.familyName} key={f.id} photo={f.photo}/>)
+        .map(f=> <Friends name={f.name} familyName={f.familyName} photo={f.photo}/>)
 
 
     return (<nav className={Classes.nav}>
