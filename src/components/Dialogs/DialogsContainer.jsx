@@ -1,5 +1,4 @@
 import React from "react";
-
 import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/dialogs-reducer";
 import {Dialogs} from "./Dialogs";
 import {connect} from "react-redux";
@@ -7,7 +6,8 @@ import {connect} from "react-redux";
 
 const mapStateToProps = (state) => {
     return {
-        messagesPage: state.messagesPage
+        messagesPage: state.messagesPage,
+        newMessageText: state.messagesPage.newMessageText,
     }
 }
 const mapDispatchToProps = (dispatch) => {

@@ -7,10 +7,10 @@ import {Message} from "./Message/Message";
 export const Dialogs = (props) => {
 
     let messagesElements = props.state.messagesData
-        .map(messages => <Message message={messages.message}></Message>)
+        .map(messages => <Message message={messages.message} key={messages.id} id={messages.id}></Message>)
 
     let dialogsElements = props.state.dialogsData
-        .map(dialog => <DialogItem id={dialog.id} name={dialog.name}/>)
+        .map(dialog => <DialogItem id={dialog.id} key={dialog.id} name={dialog.name}/>)
 
     let newMessage = React.createRef()
 
