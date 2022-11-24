@@ -66,7 +66,27 @@ let store = {
                     photo: 'https://sun9-16.userapi.com/impg/TKQdX_6Nmd_UU7lPhKdT1LEf5v8bcDEeZPMBBA/MN64PfmBZgc.jpg?size=720x1080&quality=96&sign=905bed0cefaf3d445be2ffdd0c7f4e69&c_uniq_tag=E8slreuu3GWKNB-375x9Owv2gGrnFd51-DoXDLBRczM&type=album'
                 }
             ]
+        },
+
+        usersPage: {
+            usersData: [
+                {
+                    name: 'Mike',
+                    familyName: 'Lapuzin',
+                    photo: 'https://www.befunky.com/images/prismic/5ddfea42-7377-4bef-9ac4-f3bd407d52ab_landing-photo-to-cartoon-img5.jpeg?auto=avif,webp&format=jpg&width=863',
+                    interests: 'snowboard',
+                    id: 1
+                },
+                {
+                    name: 'Mike',
+                    familyName: 'Lapuzin',
+                    photo: 'https://www.befunky.com/images/prismic/5ddfea42-7377-4bef-9ac4-f3bd407d52ab_landing-photo-to-cartoon-img5.jpeg?auto=avif,webp&format=jpg&width=863',
+                    interests: 'snowboard',
+                    id: 2
+                }
+            ]
         }
+
 
     },
     _callSubscriber() {
@@ -85,6 +105,7 @@ let store = {
         this._state.profilePage = profileReducer(this._state.profilePage, action);
         this._state.messagesPage = dialogsReducer(this._state.messagesPage, action);
         this._state.friendsBar = friendsBarReducer(this._state.friendsBar, action);
+        this._state.usersPage = usersReducer(this._state.usersPage,action)
 
         this._callSubscriber();
     }

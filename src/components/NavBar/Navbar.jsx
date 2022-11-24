@@ -8,13 +8,17 @@ console.log(Classes);
 export const Navbar = (props) => {
 
     let friendsElement = props.state.friendsData
-        .map(f=> <Friends name={f.name} familyName={f.familyName} key={f.id} photo={f.photo}/>)
+        .map(f => <Friends name={f.name} familyName={f.familyName} key={f.id} photo={f.photo}/>)
 
 
     return (<nav className={Classes.nav}>
         <div className={Classes.item}>
             <NavLink to='/profile'
                      className={navData => navData.isActive ? Classes.active : Classes.item}>Profile</NavLink>
+        </div>
+        <div className={Classes.item}>
+            <NavLink to='users'
+                     className={navData => navData.isActive ? Classes.active : Classes.item}>Search User</NavLink>
         </div>
         <div className={`${Classes.item}`}>
             <NavLink to='/dialogs'
@@ -23,6 +27,7 @@ export const Navbar = (props) => {
         <div className={Classes.item}>
             <NavLink to='news' className={navData => navData.isActive ? Classes.active : Classes.item}>News</NavLink>
         </div>
+
         <div className={Classes.item}>
             <NavLink to='music' className={navData => navData.isActive ? Classes.active : Classes.item}>Music</NavLink>
         </div>
@@ -35,9 +40,9 @@ export const Navbar = (props) => {
                      className={navData => navData.isActive ? Classes.active : Classes.item}>Photos</NavLink>
         </div>
         <div className={Classes.item}>
-        <NavLink to='videos'
-                 className={navData => navData.isActive ? Classes.active : Classes.item}>Videos</NavLink>
-    </div>
+            <NavLink to='videos'
+                     className={navData => navData.isActive ? Classes.active : Classes.item}>Videos</NavLink>
+        </div>
         <hr className={Classes.hr}/>
         <h1>FRIENDS ({friendsElement.length})</h1>
         <div className={Classes.friends}>

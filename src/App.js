@@ -9,9 +9,9 @@ import {Settings} from "./components/Settings/Settings";
 import {Videos} from "./components/Videos/Videos";
 import {Photos} from "./components/Photos/Photos";
 import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
+import {Users} from "./components/Users/Users";
 
 const App = (props) => {
-
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
@@ -24,14 +24,14 @@ const App = (props) => {
                                                  dispatch={props.dispatch}
                                />}/>
                         <Route path='dialogs/*'
-                               element={<DialogsContainer
-                                   state={props.appState.messagesPage}
-                                   dispatch={props.dispatch}/>}/>
+                               element={<DialogsContainer state={props.appState} />}/>
                         <Route path='music/*' element={<Music/>}/>
-                        <Route path='news/*' element={<News/>}/>
+                        <Route path='news/*' element={<News/>} />
+                        <Route path='users/*' element={<Users state={props.appState}/>}/>
                         <Route path='settings/*' element={<Settings/>}/>
                         <Route path='photos/*' element={<Photos/>}/>
                         <Route path='videos/*' element={<Videos/>}/>
+
                     </Routes>
                 </div>
             </div>
