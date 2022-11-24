@@ -9,9 +9,7 @@ export const Profile = (props) => {
     return (
         <div className={Classes.content}>
             <ProfileInfo/>
-            <MyPostsContainer
-                dispatch={props.dispatch}
-                state={props.state}/>
+            <MyPostsContainer />
         </div>
     )
 }
