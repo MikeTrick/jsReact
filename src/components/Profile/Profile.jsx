@@ -12,6 +12,7 @@ export const Profile = (props) => {
             <MyPostsContainer
                 dispatch={props.dispatch}
                 state={props.state}/>
+
         </div>
     )
 }
