@@ -1,4 +1,6 @@
-let initialState = {
+// TODO: @Tricky_Mike - разбей инишлы тоже по файликам, после этого надо будет подправить редьюсеры
+
+export const FRIENDS_BAR_INITIAL_STATE = {
     friendsData: [
         {
             id: 1,
@@ -33,9 +35,28 @@ let initialState = {
     ]
 }
 
-const friendsBarReducer = (state = initialState, action) => {
-
-
-    return state;
+export const PROFILR_PAGE_INITIAL_STATE = {
+    posts: [
+        {id: 1, message: 'Hi! How u doin\'?', likesAmount: 15},
+        {id: 1, message: 'It\'s my first post!', likesAmount: 25},
+        {id: 1, message: 'It\'s my second post!', likesAmount: 35},
+        {id: 1, message: 'It\'s my third post! I am on fire!', likesAmount: 25},
+    ],
 }
-export default friendsBarReducer;
+
+export const DIALOGS_INITIAL_STATE = {
+    messagesData: [
+        {id: 1, message: 'Yo'},
+        {id: 2, message: 'Man'},
+        {id: 3, message: 'How are you?'},
+        {id: 4, message: 'Yo'},
+    ],
+
+    dialogsData: [
+        {id: 1, name: 'Mike'},
+        {id: 2, name: 'Andrew'},
+        {id: 3, name: 'John'},
+        {id: 4, name: 'Meatball'},
+        {id: 5, name: 'Chan'}
+    ],
+};

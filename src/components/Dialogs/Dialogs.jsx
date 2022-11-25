@@ -1,43 +1,45 @@
-import React from "react";
-import Classes from './Dialogs.module.css'
-import {DialogItem} from "./DialogItem/DialogItem";
+import React, {useMemo} from 'react';
+import {useSelector} from "react-redux";
+
 import {Message} from "./Message/Message";
+import {DialogItem} from "./DialogItem/DialogItem";
+import {getDialogsState} from "../../redux/store/selectors";
+import {MessageAdder} from "./MessageAdder"
+import Classes from './Dialogs.module.css';
 
-export const Dialogs = (props) => {
-    let messagesElements = props.state.messagesPage.messagesData
-        .map(messages => <Message message={messages.message} key={messages.id} id={messages.id}></Message>)
+export const Dialogs = () => {
 
-    let dialogsElements = props.dialogsData
-        .map(dialog => <DialogItem id={dialog.id} key={dialog.id} name={dialog.name}/>)
+    const dialogs = useSelector(getDialogsState.getDialogsSelector);
+    const messages = useSelector(getDialogsState.getMessagesSelector);
 
-    let newMessage = React.createRef()
+    const renderDialogs = useMemo(() => dialogs.map(({id, name}) => (
+        <DialogItem
+            key={id}
+            id={id}
+            name={name}
+        />
+    )), [dialogs]);
 
-    let addMessage = () => {
-        props.addMessage(newMessage.current.textarea);
-    }
-
-    let onMessageChange = () => {
-        let message = newMessage.current.value;
-        props.onMessageChange(message)
-    }
+    const renderMessages = useMemo(() => messages.map(({id, message}) => (
+        <Message
+            key={id}
+            id={id}
+            message={message}
+        />
+    )), [messages]);
 
     return (
-        <div>
-            <div className={Classes.dialogsWrapper}>
-                <h2>DIALOGS</h2>
-                <div className={Classes.dialogs}>
-                    <div className={Classes.dialogsNames}>
-                        {dialogsElements}
-                    </div>
-                    <div className={Classes.messages}>
-                        {messagesElements}
-                    </div>
+        <div className={Classes.dialogsWrapper}>
+            <h2>DIALOGS</h2>
+            <div className={Classes.dialogs}>
+                <div className={Classes.dialogsNames}>
+                    {renderDialogs}
+                </div>
+                <div className={Classes.messages}>
+                    {renderMessages}
                 </div>
             </div>
-            <div className={Classes.text_adder}>
-                <textarea ref={newMessage} onChange={onMessageChange} value={props.newMessageText} />
-                <button onClick={addMessage}>add</button>
-            </div>
+            <MessageAdder />
         </div>
     )
 }

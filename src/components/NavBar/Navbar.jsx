@@ -1,14 +1,21 @@
-import React from "react";
-import Classes from './Navbar.module.css';
+import React, {useMemo} from "react";
+import {useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
+
 import {Friends} from "../Friends/Friends";
+import {getNavState} from "../../redux/store/selectors";
+import Classes from './Navbar.module.css';
 
-console.log(Classes);
-
-export const Navbar = (props) => {
-
-    let friendsElement = props.state.friendsData
-        .map(f => <Friends name={f.name} familyName={f.familyName} key={f.id} photo={f.photo}/>)
+export const Navbar = () => {
+    const friends = useSelector(getNavState.getFriendsDataSelector);
+    const renderFriends = useMemo(() => friends.map((friend) => (
+        <Friends
+            key={friend.id}
+            name={friend.name}
+            familyName={friend.familyName}
+            photo={friend.photo}
+        />
+    )), [friends])
 
 
     return (<nav className={Classes.nav}>
@@ -44,9 +51,9 @@ export const Navbar = (props) => {
                      className={navData => navData.isActive ? Classes.active : Classes.item}>Videos</NavLink>
         </div>
         <hr className={Classes.hr}/>
-        <h1>FRIENDS ({friendsElement.length})</h1>
+        <h1>FRIENDS ({friends.length})</h1>
         <div className={Classes.friends}>
-            {friendsElement}
+            {renderFriends}
         </div>
     </nav>)
 }

@@ -1,39 +1,29 @@
-import './App.css';
+import {useMemo} from 'react';
+import {BrowserRouter, Route, Routes,} from "react-router-dom";
+
 import {Header} from "./components/Header/Header";
 import {Navbar} from "./components/NavBar/Navbar";
-import {Profile} from "./components/Profile/Profile";
-import {BrowserRouter, Route, Routes,} from "react-router-dom";
-import {Music} from "./components/Music/Music";
-import {News} from "./components/News/News";
-import {Settings} from "./components/Settings/Settings";
-import {Videos} from "./components/Videos/Videos";
-import {Photos} from "./components/Photos/Photos";
-import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
-import {Users} from "./components/Users/Users";
+import {ROUTES_MAP} from "./common/constants/routes";
+import './App.css';
 
-const App = (props) => {
+const App = () => {
+
+    const content = useMemo(() => (
+        <div className='app-wrapper-content'>
+            <Routes>
+                {Object.entries(ROUTES_MAP).map(([path, Component]) => (
+                    <Route key={path} path={path} element={<Component />} />
+                ))}
+            </Routes>
+        </div>
+    ), [])
+
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
-                <Header/>
-                <Navbar state={props.appState.friendsBar}/>
-                <div className="app-wrapper-content">
-                    <Routes>
-                        <Route path='profile/*'
-                               element={<Profile state={props.appState}
-                                                 dispatch={props.dispatch}
-                               />}/>
-                        <Route path='dialogs/*'
-                               element={<DialogsContainer state={props.appState} />}/>
-                        <Route path='music/*' element={<Music/>}/>
-                        <Route path='news/*' element={<News/>} />
-                        <Route path='users/*' element={<Users state={props.appState}/>}/>
-                        <Route path='settings/*' element={<Settings/>}/>
-                        <Route path='photos/*' element={<Photos/>}/>
-                        <Route path='videos/*' element={<Videos/>}/>
-
-                    </Routes>
-                </div>
+                <Header />
+                <Navbar />
+                {content}
             </div>
         </BrowserRouter>
 
