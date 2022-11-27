@@ -1,7 +1,7 @@
 const getMessagesSelector = ({messagesPage}) => messagesPage.messagesData;
 const getDialogsSelector = ({messagesPage}) => messagesPage.dialogsData;
 
-const getUsersSelector = ({users}) => users.usersData;
+const getUsersSelector = ({usersPage}) => usersPage.usersData;
 
 const getPostsSelector = ({profilePage}) => profilePage.posts;
 
