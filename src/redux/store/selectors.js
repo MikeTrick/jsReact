@@ -1,9 +1,15 @@
-const getMessagesSelector = ({ messagesPage }) => messagesPage.messagesData;
-const getDialogsSelector = ({ messagesPage }) => messagesPage.dialogsData;
+const getMessagesSelector = ({messagesPage}) => messagesPage.messagesData;
+const getDialogsSelector = ({messagesPage}) => messagesPage.dialogsData;
 
-const getPostsSelector =({profilePage}) => profilePage.posts;
+const getUsersSelector = ({users}) => users.usersData;
 
-const getFriendsDataSelector = ({ friendsBar }) => friendsBar.friendsData;
+const getPostsSelector = ({profilePage}) => profilePage.posts;
+
+const getFriendsDataSelector = ({friendsBar}) => friendsBar.friendsData;
+
+export const getUsersState = {
+    getUsersSelector,
+}
 
 export const getDialogsState = {
     getMessagesSelector,

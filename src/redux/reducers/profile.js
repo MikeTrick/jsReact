@@ -1,6 +1,7 @@
 import {reducerCreator} from "../../common/redux/reducerCreator";
 import {Actions} from "../actions.enum";
-import {PROFILE_PAGE_INITIAL_STATE} from "../store/initial";
+import {PROFILE_PAGE_INITIAL_STATE} from "../store/initial/profile";
+
 
 const addPost = (state, { payload }) => ({
     ...state,

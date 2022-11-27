@@ -2,7 +2,7 @@ import React from "react";
 import Classes from './User.module.css';
 
 
-export const User = (props) => {
+export const    User = (props) => {
 
     return (
         <div className={Classes.users}>

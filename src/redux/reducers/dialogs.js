@@ -1,6 +1,7 @@
 import {reducerCreator} from "../../common/redux/reducerCreator";
 import {Actions} from "../actions.enum";
-import {DIALOGS_INITIAL_STATE} from "../store/initial";
+import {DIALOGS_INITIAL_STATE} from "../store/initial/dialogs";
+
 
 const addMessage = (state, { payload }) => ({
     ...state,
