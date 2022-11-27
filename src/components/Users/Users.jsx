@@ -7,14 +7,16 @@ import {getUsersState} from "../../redux/store/selectors";
 export const Users = () => {
     const users = useSelector(getUsersState.getUsersSelector)
 
-   let renderUsers = useMemo(() => users.map(({name, familyName, photo, interests}) =>
+    let renderUsers = useMemo(() => users.map(({name, familyName, photo, interests}, index) =>
         (
             <User
-            name={name}
-            familyname={familyName}
-            photo={photo}
-            interests={interests}/>
-        )),[users]);
+                name={name}
+                familyname={familyName}
+                photo={photo}
+                interests={interests}
+                key={`${name}-${familyName}-${index}`}
+            />
+        )), [users]);
 
     return (
         <div>
