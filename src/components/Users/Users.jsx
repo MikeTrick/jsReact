@@ -1,17 +1,11 @@
 import React, {useMemo} from "react";
-import {User} from "./User/User";
 import {useSelector} from "react-redux";
+
+import {User} from "./User/User";
 import {getUsersState} from "../../redux/store/selectors";
 
-
-
 export const Users = () => {
-    let users = useSelector(getUsersState.getUsersSelector)
-
-
-   if (users.isArray === true) {
-       alert('Users is an array, you\'re good!')
-   } alert  ('Users not an array, yo\'re dumbhole!')
+    const users = useSelector(getUsersState.getUsersSelector)
 
    let renderUsers = useMemo(() => users.map(({name, familyName, photo, interests}) =>
         (
@@ -21,8 +15,6 @@ export const Users = () => {
             photo={photo}
             interests={interests}/>
         )),[users]);
-
-
 
     return (
         <div>
