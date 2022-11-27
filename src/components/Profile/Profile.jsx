@@ -2,14 +2,14 @@ import React from "react";
 import Classes from './Profile.module.css';
 // import {MyPosts} from "./MyPosts/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
-import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
+import {MyPosts} from "./MyPosts/MyPosts";
 
-export const Profile = (props) => {
+export const Profile = () => {
 
     return (
         <div className={Classes.content}>
             <ProfileInfo/>
-            <MyPostsContainer />
+            <MyPosts />
         </div>
     )
 }

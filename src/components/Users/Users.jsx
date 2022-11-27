@@ -3,11 +3,11 @@ import {User} from "./User/User";
 
 
 export const Users = (state) => {
-    let user = state.usersPage.usersData.map(u => <User name={u.name} familyName={u.familyName} photo={u.photo}  interests={u.interests}/>)
+    let users = state.usersData.map(u => <User familyname={u.familyName} name={u.name} photo={u.photo}  interests={u.interests}/>)
     // return <User state={props.appState.usersPage.usersData}/>
     return (
         <div>
-            {user}
+            {users}
         </div>
     )
 }
