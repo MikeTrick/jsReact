@@ -2,14 +2,14 @@ import {USERS_PAGE_INITIAL_STATE} from "../store/initial/users";
 import {reducerCreator} from "../../common/redux/reducerCreator";
 import {Actions} from "../actions.enum";
 
-const follow = (state, action, {payload}) => (
+const follow = (state, { payload }) => (
     {
         ...state,
-        users: state.users.map(u => {
-            if (u.id === action.userId) {
-                return {...u, followed: true}
+        usersData: state.usersData.map((user) => {
+            if (user.id === payload) {
+                return {...user, followed: true}
             }
-            return u
+            return user
         })
     })
 
@@ -31,7 +31,6 @@ const setUsers = (state, action) => {
     }
 
 }
-
 
 const reducersMap = {
     [Actions.FOLLOW]: follow,

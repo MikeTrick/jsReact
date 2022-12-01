@@ -9,7 +9,7 @@ export const USERS_PAGE_INITIAL_STATE = {
             followed: true,
         },
         {
-            id: 1,
+            id: 2,
             name: 'Your',
             familyName: 'Photographer',
             photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
@@ -17,7 +17,7 @@ export const USERS_PAGE_INITIAL_STATE = {
             followed: false,
         },
         {
-            id: 1,
+            id: 3,
             name: 'Your',
             familyName: 'Photographer',
             photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
@@ -25,7 +25,7 @@ export const USERS_PAGE_INITIAL_STATE = {
             followed: true,
         },
         {
-            id: 1,
+            id: 4,
             name: 'Your',
             familyName: 'Photographer',
             photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
