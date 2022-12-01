@@ -1,8 +1,13 @@
 import React from "react";
 import Classes from './User.module.css';
+import {usersActionCreators} from "../../../redux/actionCreators/users";
 
 
-export const    User = (props) => {
+export const User = (props) => {
+
+    // const follow = (userId, action) => {
+    //
+    // }
 
     return (
         <div className={Classes.users}>
@@ -17,14 +22,14 @@ export const    User = (props) => {
                                 {props.name}
                             </div>
                             <div>
-                                {props.familyName}
+                                {props.familyname}
                             </div>
                         </div>
                     </div>
                     {props.interests}
                 </div>
                 <div className={Classes.button}>
-                    <button>Follow/unfollow</button>
+                    <button>Follow</button>
                 </div>
             </div>
         </div>

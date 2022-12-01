@@ -7,7 +7,6 @@ export const Friends = (props) => {
     return (
         <div className={Classes.friends_wrapper}>
             <div>
-
                 <img src={props.photo} alt=""/>
             </div>
             <div>
