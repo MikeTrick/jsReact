@@ -2,7 +2,7 @@ import {Actions} from '../actions.enum.js';
 
 const follow = (userId) => ({
     type: Actions.FOLLOW,
-    userId,
+    payload: userId,
     // payload
 })
 const unfollow = (userId) => ({

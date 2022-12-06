@@ -7,6 +7,7 @@ const getPostsSelector = ({profilePage}) => profilePage.posts;
 
 const getFriendsDataSelector = ({friendsBar}) => friendsBar.friendsData;
 
+
 export const getUsersState = {
     getUsersSelector,
 }
