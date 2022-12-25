@@ -1,15 +1,99 @@
 import React, {memo, useMemo} from "react";
 import Classes from './User.module.css';
-import {usersActionCreators} from "../../../redux/actionCreators/users";
 import {useActions} from "../../../common/hooks/useActions";
 import {usersActions} from "../../../redux/actions";
 
 
-export const User = memo(({ id, followed, ...props }) => {
+export const User = memo(({id, followed, ...props}) => {
 
-    const { follow, unfollow, setUsers } = useActions(usersActions);
 
-    const followUser = () => follow(id);
+    const {follow, unfollow} = useActions(usersActions);
+    // if (props.users.length === 0) {
+    //
+    //     axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+    //
+    //     })
+    //     setUsers([
+    //         // {
+    //         //     id: 1,
+    //         //     name: 'Your',
+    //         //     familyName: 'Photographer',
+    //         //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
+    //         //     interests: 'photography',
+    //         //     followed: true,
+    //         // },
+    //         // {
+    //         //     id: 2,
+    //         //     name: 'Your',
+    //         //     familyName: 'Photographer',
+    //         //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
+    //         //     interests: 'photography',
+    //         //     followed: false,
+    //         // },
+    //         // {
+    //         //     id: 3,
+    //         //     name: 'Your',
+    //         //     familyName: 'Photographer',
+    //         //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
+    //         //     interests: 'photography',
+    //         //     followed: true,
+    //         // },
+    //         // {
+    //         //     id: 4,
+    //         //     name: 'Your',
+    //         //     familyName: 'Photographer',
+    //         //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
+    //         //     interests: 'photography',
+    //         //     followed: false,
+    //         // },
+    //     ],)
+    // }
+
+
+    const followUser = () => follow(id)
+    const unfollowUser = () => unfollow(id);
+
+
+    // setUsers([
+    //     // {
+    //     //     id: 1,
+    //     //     name: 'Your',
+    //     //     familyName: 'Photographer',
+    //     //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
+    //     //     interests: 'photography',
+    //     //     followed: true,
+    //     // },
+    //     // {
+    //     //     id: 2,
+    //     //     name: 'Your',
+    //     //     familyName: 'Photographer',
+    //     //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
+    //     //     interests: 'photography',
+    //     //     followed: false,
+    //     // },
+    //     // {
+    //     //     id: 3,
+    //     //     name: 'Your',
+    //     //     familyName: 'Photographer',
+    //     //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
+    //     //     interests: 'photography',
+    //     //     followed: true,
+    //     // },
+    //     // {
+    //     //     id: 4,
+    //     //     name: 'Your',
+    //     //     familyName: 'Photographer',
+    //     //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
+    //     //     interests: 'photography',
+    //     //     followed: false,
+    //     // },
+    // ],)
+
+    const onFollowButtonClick = () => {
+        if (followed === true) {
+            unfollowUser();
+        } else followUser();
+    }
 
     const buttonTitle = useMemo(() => followed ? 'UNFOLLOW' : 'FOLLOW', [followed])
 
@@ -33,7 +117,7 @@ export const User = memo(({ id, followed, ...props }) => {
                     {props.interests}
                 </div>
                 <div className={Classes.button}>
-                    <button onClick={followUser}>
+                    <button onClick={onFollowButtonClick}>
                         {buttonTitle}
                     </button>
                 </div>

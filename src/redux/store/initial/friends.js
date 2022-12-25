@@ -1,11 +1,6 @@
 export const FRIENDS_BAR_INITIAL_STATE = {
     friendsData: [
-        {
-            id: 1,
-            name: 'Ksyusha',
-            familyName: 'Ashtantum',
-            photo: 'https://sun3-10.userapi.com/impg/Bj2eGJCalzlKqEod6cPdU7HDma4umi7ohCrvIg/AoyYCRWPW-U.jpg?size=825x1080&quality=95&sign=7e5c3c3b52333b0db3309a1bd13ee0e2&type=album'
-        },
+
         {
             id: 2,
             name: 'Tatiana',

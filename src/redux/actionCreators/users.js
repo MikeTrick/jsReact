@@ -3,17 +3,15 @@ import {Actions} from '../actions.enum.js';
 const follow = (userId) => ({
     type: Actions.FOLLOW,
     payload: userId,
-    // payload
 })
 const unfollow = (userId) => ({
     type: Actions.UNFOLLOW,
-    userId,
-    // payload,
+    payload: userId,
 })
 
-const setUsers = (users) => ({
+const setUsers = (payload) => ({
     type: Actions.SET_USERS,
-    users
+    payload,
 })
 
 

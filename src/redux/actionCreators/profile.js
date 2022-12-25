@@ -5,6 +5,12 @@ const addPost = (payload) => ({
     payload
 })
 
+const addLike = (payload) => ({
+    type: Actions.ADD_LIKE,
+    payload
+})
+
 export const profileActionCreators = {
     addPost,
+    addLike,
 }

@@ -7,27 +7,28 @@ const follow = (state, { payload }) => (
         ...state,
         usersData: state.usersData.map((user) => {
             if (user.id === payload) {
+
                 return {...user, followed: true}
             }
             return user
         })
     })
 
-const unfollow = (state, action, {payload}) => (
+const unfollow = (state, { payload }) => (
     {
         ...state,
-        users: state.users.map(u => {
-            if (u.id === !action.userId) {
-                return {...u, followed: false}
+        usersData: state.usersData.map((user) => {
+            if (user.id === payload) {
+                return {...user, followed: false}
             }
-            return u
+            return user
         })
     })
 
-const setUsers = (state, action) => {
+const setUsers = (state, { payload }) => {
     return {
         ...state,
-        users: [...state.users, ...action.users]
+        usersData: payload,
     }
 
 }

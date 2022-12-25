@@ -4,4 +4,5 @@ export const Actions = {
     FOLLOW: 'FOLLOW',
     UNFOLLOW: 'UNFOLLOW',
     SET_USERS: 'SET_USERS',
+    ADD_LIKE: 'ADD_LIKE',
 }
