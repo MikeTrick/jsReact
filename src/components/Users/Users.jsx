@@ -1,22 +1,30 @@
-import React, {useMemo} from "react";
+import React, {useEffect, useMemo} from "react";
 import {User} from "./User/User";
 import {useSelector} from "react-redux";
-import {getUsersState} from "../../redux/store/selectors";
+import {getUsersPages, getUsersState,} from "../../redux/store/selectors";
+
 import {useActions} from "../../common/hooks/useActions";
 import axios from "axios";
 import {usersActions} from "../../redux/actions";
+import Classes from "./Users.module.css";
 
 export const Users = () => {
-    const {setUsers} = useActions(usersActions);
+    const {setUsers, setCurrentPage, setTotalUsersCount} = useActions(usersActions);
+
 
     let users = useSelector(getUsersState.getUsersSelector)
+    let totalUsersCount = useSelector(getUsersPages.setTotalUsersCountSelector)
+    let pageSize = useSelector(getUsersPages.getPagesCountSelector)
+    let currentPage = useSelector(getUsersPages.setCurrentPage)
 
-    if (users.length ===0) {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-            setUsers(response.data.items)
-        })
-    }
 
+    useEffect(() => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
+            .then(response => {
+                setTotalUsersCount(response.data.totalCount)
+                setUsers(response.data.items)
+            })
+    }, [currentPage, pageSize])
 
     let renderUsers = useMemo(() => users.map(({id, ...userProps}) =>
         (
@@ -27,11 +35,38 @@ export const Users = () => {
             />
         )), [users]);
 
+    let pagesCount = Math.ceil(totalUsersCount / pageSize);
+
+
+    let pages = []
+
+    for (let i = 1; i <= pagesCount; i++) {
+        if (pages.length<=15) {
+            pages.push(i)
+        }
+
+    }
+
+
+    const currentPageClassName = (page) => currentPage === page
+        ? Classes.selectedPage
+        : Classes.pages;
 
     return (
+
         <div>
+            {/*<div>*/}
+            {/*    <button onClick={getUsers}>Get Users</button>*/}
+            {/*</div>*/}
+            <div className={Classes.pages}>
+                {pages.map((page) => {
+                    return <span className={currentPageClassName(page)}
+                                 onClick={() => setCurrentPage(page)}>{page}}</span>
+                })
+                }
+            </div>
+
             {renderUsers}
-            {/*<User photo='https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg'/>*/}
         </div>
     )
 }

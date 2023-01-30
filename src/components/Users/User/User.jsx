@@ -8,86 +8,10 @@ export const User = memo(({id, followed, ...props}) => {
 
 
     const {follow, unfollow} = useActions(usersActions);
-    // if (props.users.length === 0) {
-    //
-    //     axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-    //
-    //     })
-    //     setUsers([
-    //         // {
-    //         //     id: 1,
-    //         //     name: 'Your',
-    //         //     familyName: 'Photographer',
-    //         //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
-    //         //     interests: 'photography',
-    //         //     followed: true,
-    //         // },
-    //         // {
-    //         //     id: 2,
-    //         //     name: 'Your',
-    //         //     familyName: 'Photographer',
-    //         //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
-    //         //     interests: 'photography',
-    //         //     followed: false,
-    //         // },
-    //         // {
-    //         //     id: 3,
-    //         //     name: 'Your',
-    //         //     familyName: 'Photographer',
-    //         //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
-    //         //     interests: 'photography',
-    //         //     followed: true,
-    //         // },
-    //         // {
-    //         //     id: 4,
-    //         //     name: 'Your',
-    //         //     familyName: 'Photographer',
-    //         //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
-    //         //     interests: 'photography',
-    //         //     followed: false,
-    //         // },
-    //     ],)
-    // }
-
 
     const followUser = () => follow(id)
     const unfollowUser = () => unfollow(id);
 
-
-    // setUsers([
-    //     // {
-    //     //     id: 1,
-    //     //     name: 'Your',
-    //     //     familyName: 'Photographer',
-    //     //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
-    //     //     interests: 'photography',
-    //     //     followed: true,
-    //     // },
-    //     // {
-    //     //     id: 2,
-    //     //     name: 'Your',
-    //     //     familyName: 'Photographer',
-    //     //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
-    //     //     interests: 'photography',
-    //     //     followed: false,
-    //     // },
-    //     // {
-    //     //     id: 3,
-    //     //     name: 'Your',
-    //     //     familyName: 'Photographer',
-    //     //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
-    //     //     interests: 'photography',
-    //     //     followed: true,
-    //     // },
-    //     // {
-    //     //     id: 4,
-    //     //     name: 'Your',
-    //     //     familyName: 'Photographer',
-    //     //     photo: 'https://www.paperlessmovement.com/wp-content/uploads/2019/09/o2dvsv2pnhe.jpg',
-    //     //     interests: 'photography',
-    //     //     followed: false,
-    //     // },
-    // ],)
 
     const onFollowButtonClick = () => {
         if (followed === true) {
@@ -95,31 +19,42 @@ export const User = memo(({id, followed, ...props}) => {
         } else followUser();
     }
 
+    // const isPhotoHere = (props) => {
+    //     if (props.photos.small = '') {
+    //         props.photos.small = 'https://sun9-86.userapi.com/impf/c848620/v848620116/4b6/B9RDTgs5nqA.jpg?size=1280x853&quality=96&sign=6fdcab7b8374f358ee59abab5ef64256&type=album'
+    //     }
+    //     props.small = props.small
+    // }
+
     const buttonTitle = useMemo(() => followed ? 'UNFOLLOW' : 'FOLLOW', [followed])
 
     return (
-        <div className={Classes.users}>
-            <div className={Classes.userWrapper}>
-                <div className={Classes.userInterests}>
-                    <div className={Classes.userInfo}>
-                        <div>
-                            <img src={props.photo} alt=""/>
-                        </div>
-                        <div>
+        <div>
+            <div className={Classes.users}>
+
+                <div className={Classes.userWrapper}>
+                    <div className={Classes.userInterests}>
+                        <div className={Classes.userInfo}>
                             <div>
-                                {props.name}
+                                {/*<img src={isPhotoHere(props.small)} alt=""/>*/}
+                                <img src={props.photos.small} alt=""/>
                             </div>
                             <div>
-                                {props.familyname}
+                                <div>
+                                    {props.name}
+                                </div>
+                                <div>
+                                    {props.familyname}
+                                </div>
                             </div>
                         </div>
+                        {props.interests}
                     </div>
-                    {props.interests}
-                </div>
-                <div className={Classes.button}>
-                    <button onClick={onFollowButtonClick}>
-                        {buttonTitle}
-                    </button>
+                    <div className={Classes.button}>
+                        <button onClick={onFollowButtonClick}>
+                            {buttonTitle}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

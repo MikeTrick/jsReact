@@ -14,9 +14,20 @@ const setUsers = (payload) => ({
     payload,
 })
 
+const setCurrentPage = (payload) => ({
+    type: Actions.SET_CURRENT_PAGE,
+    payload,
+})
+
+const setTotalUsersCount = (payload) => ({
+    type: Actions.SET_TOTAL_USERS_COUNT,
+    payload,
+})
 
 export const usersActionCreators = {
     follow,
     unfollow,
     setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
 }

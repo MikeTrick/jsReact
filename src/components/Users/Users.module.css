@@ -1,43 +1,14 @@
-.users {
-    margin: 0 auto;
-    width: 500px;
-
-}
-
-.users .userWrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: gray;
-    padding: 10px;
-    border: 0.5px solid black;
-    border-radius: 5px;
-}
-
-.users .userWrapper .userInterests {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    color: darkgrey;
-
-}
-.users .userWrapper .userInterests .userInfo {
-    display: flex;
-    align-items: center;
-    padding: 10px;
+.pages {
     color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
 }
-.users .userWrapper .userInterests .userInfo img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+.pages span {
+    margin: 10px;
 }
-
-.users .userWrapper button {
-    width: 200px;
-    height: 20px;
-    border-radius: 40px;
-    background: #262623;
-    border: 0.5px solid black;
-    color: wheat;
+.pages .selectedPage {
+    font-weight: bold;
+    color: gold;
 }

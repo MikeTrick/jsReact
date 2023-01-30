@@ -1,14 +1,14 @@
 import React from "react";
 
-import follow from './../../media/FOLLOW.mp4'
-import ishMish from './../../media/ISHMISH.mp4'
+// import follow from './../../media/FOLLOW.mp4'
+// import ishMish from './../../media/ISHMISH.mp4'
 
 import Classes from './Videos.module.css'
 
 
 export const Videos = (props) => {
     const videoSrc = {
-        Src: follow,
+        // Src: follow,
     }
 
     return (
@@ -18,7 +18,7 @@ export const Videos = (props) => {
                 <div>
                     <video width="400" controls>
                         <source
-                            src={follow}
+                            // src={follow}
                         />
                         Your browser does not support HTML5 video.
                     </video>

@@ -14,10 +14,12 @@ let initialState = {
             interests: 'snowboard',
             id: 2
         }
-    ]
+    ],
+    pageSize: 5,
+    totalCount: 0,
 }
 
-const usersReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState) => {
 
 
     return state;
