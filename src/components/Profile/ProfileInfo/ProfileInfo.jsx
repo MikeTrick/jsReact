@@ -10,7 +10,6 @@ export const ProfileInfo = () => {
     const {setUserProfile} = useActions(profileActions);
 
     const { id: profileId } = useParams();
-    console.log(profileId);
 
     useEffect(() => {
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${profileId || 2}`)
