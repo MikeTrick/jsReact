@@ -9,6 +9,7 @@ import {Videos} from "../../components/Videos/Videos";
 
 export const ROUTES = {
     PROFILE: 'profile/*',
+    FRIEND_PROFILE: 'profile/:id',
     DIALOGS: 'dialogs/*',
     MUSIC: 'music/*',
     NEWS: 'news/*',
@@ -20,6 +21,7 @@ export const ROUTES = {
 
 export const ROUTES_MAP = {
     [ROUTES.PROFILE]: Profile,
+    [ROUTES.FRIEND_PROFILE]: Profile,
     [ROUTES.DIALOGS]: Dialogs,
     [ROUTES.MUSIC]: Music,
     [ROUTES.NEWS]: News,

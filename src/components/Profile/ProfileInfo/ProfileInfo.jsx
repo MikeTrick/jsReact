@@ -4,18 +4,20 @@ import Classes from './ProfileInfo.module.css'
 import {useActions} from "../../../common/hooks/useActions";
 import {profileActions} from "../../../redux/actions";
 import axios from "axios";
+import {useParams} from "react-router-dom";
 
 export const ProfileInfo = () => {
     const {setUserProfile} = useActions(profileActions);
 
+    const { id: profileId } = useParams();
+    console.log(profileId);
 
     useEffect(() => {
-        debugger
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${profileId || 2}`)
             .then(response => {
                 setUserProfile(response.data)
             })
-    }, )
+    }, [profileId]);
 
     return (
         <div>
