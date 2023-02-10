@@ -24,10 +24,16 @@ const setTotalUsersCount = (payload) => ({
     payload,
 })
 
+const setIsFetching = (payload) => ({
+    type: Actions.SET_IS_FETCHING,
+    payload,
+})
+
 export const usersActionCreators = {
     follow,
     unfollow,
     setUsers,
     setCurrentPage,
     setTotalUsersCount,
+    setIsFetching,
 }

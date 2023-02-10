@@ -1,4 +1,6 @@
 export const PROFILE_PAGE_INITIAL_STATE = {
+    data:[],
+
     posts: [
         {id: 1, message: 'Hi! How u doin\'?', likesAmount: 15},
         {id: 2, message: 'It\'s my first post!', likesAmount: 25},

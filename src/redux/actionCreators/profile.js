@@ -10,7 +10,13 @@ const addLike = (payload) => ({
     payload
 })
 
+const setUserProfile =(payload) => ({
+    type: Actions.SET_USER_PROFILE,
+    payload
+})
+
 export const profileActionCreators = {
     addPost,
     addLike,
+    setUserProfile
 }

@@ -2,6 +2,8 @@ import React, {memo, useMemo} from "react";
 import Classes from './User.module.css';
 import {useActions} from "../../../common/hooks/useActions";
 import {usersActions} from "../../../redux/actions";
+import {NavLink} from "react-router-dom";
+import axios from "axios";
 
 
 export const User = memo(({id, followed, ...props}) => {
@@ -36,8 +38,9 @@ export const User = memo(({id, followed, ...props}) => {
                     <div className={Classes.userInterests}>
                         <div className={Classes.userInfo}>
                             <div>
-                                {/*<img src={isPhotoHere(props.small)} alt=""/>*/}
-                                <img src={props.photos.small} alt=""/>
+                                <NavLink to={'/profile' + id}>
+                                    <img src={props.photos.small} alt=""/>
+                                </NavLink>
                             </div>
                             <div>
                                 <div>

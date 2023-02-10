@@ -13,7 +13,6 @@ const addPost = (state, {payload}) => ({
 })
 
 const addLike = (state,) => {
-    debugger;
     return ({
         ...state,
         // likesAmount: payload + 4,
@@ -22,10 +21,20 @@ const addLike = (state,) => {
     })
 }
 
+const setUserProfile = (state, {payload}) => {
+    return ({
+        ...state,
+        data: [...state.data],
+    })
+
+
+}
+
 
 const reducersMap = {
     [Actions.ADD_POST]: addPost,
     [Actions.ADD_LIKE]: addLike,
+    [Actions.SET_USER_PROFILE]:setUserProfile,
 }
 
 export const profileReducer = reducerCreator(reducersMap, PROFILE_PAGE_INITIAL_STATE);

@@ -47,12 +47,21 @@ const setTotalUsersCount = (state, {payload}) => {
     }
 }
 
+const setIsFetching = (state, {payload}) => {
+    return {
+        ...state,
+        isFetching: payload,
+    }
+}
+
+
 const reducersMap = {
     [Actions.FOLLOW]: follow,
     [Actions.UNFOLLOW]: unfollow,
     [Actions.SET_USERS]: setUsers,
     [Actions.SET_CURRENT_PAGE]: setCurrentPage,
     [Actions.SET_TOTAL_USERS_COUNT]: setTotalUsersCount,
+    [Actions.SET_IS_FETCHING]: setIsFetching,
 };
 
 export const usersReducer = reducerCreator(reducersMap, USERS_PAGE_INITIAL_STATE);

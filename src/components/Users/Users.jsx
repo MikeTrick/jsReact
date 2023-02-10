@@ -8,19 +8,24 @@ import axios from "axios";
 import {usersActions} from "../../redux/actions";
 import Classes from "./Users.module.css";
 
+import {Preloader} from "../Preloader/Preloader";
+
 export const Users = () => {
-    const {setUsers, setCurrentPage, setTotalUsersCount} = useActions(usersActions);
+    const {setUsers, setCurrentPage, setTotalUsersCount, setIsFetching} = useActions(usersActions);
 
 
     let users = useSelector(getUsersState.getUsersSelector)
     let totalUsersCount = useSelector(getUsersPages.setTotalUsersCountSelector)
     let pageSize = useSelector(getUsersPages.getPagesCountSelector)
     let currentPage = useSelector(getUsersPages.setCurrentPage)
+    let isFetching = useSelector(getUsersState.isFetching)
 
 
     useEffect(() => {
+        setIsFetching(true)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
             .then(response => {
+                setIsFetching(false)
                 setTotalUsersCount(response.data.totalCount)
                 setUsers(response.data.items)
             })
@@ -41,7 +46,7 @@ export const Users = () => {
     let pages = []
 
     for (let i = 1; i <= pagesCount; i++) {
-        if (pages.length<=15) {
+        if (pages.length <= 15) {
             pages.push(i)
         }
 
@@ -53,20 +58,23 @@ export const Users = () => {
         : Classes.pages;
 
     return (
-
         <div>
-            {/*<div>*/}
-            {/*    <button onClick={getUsers}>Get Users</button>*/}
-            {/*</div>*/}
-            <div className={Classes.pages}>
-                {pages.map((page) => {
-                    return <span className={currentPageClassName(page)}
-                                 onClick={() => setCurrentPage(page)}>{page}}</span>
-                })
-                }
+            <div>
+                {isFetching ? <Preloader/> : null}>
             </div>
+            <div>
+                <div className={Classes.pages}>
+                    {pages.map((page) => {
+                        return <span className={currentPageClassName(page)}
+                                     onClick={() => setCurrentPage(page)}>{page}}</span>
+                    })
+                    }
+                </div>
 
-            {renderUsers}
+                {renderUsers}
+            </div>
         </div>
     )
 }
+
+//PRELOADER WORKS LESSON N57
