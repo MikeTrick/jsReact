@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import UpperImage from "../../Upper-image.png";
+import UpperImage from "../../../components/Upper-image.png";
 import Classes from './ProfileInfo.module.css'
 import {useActions} from "../../../common/hooks/useActions";
 import {profileActions} from "../../../redux/actions";

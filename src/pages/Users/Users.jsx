@@ -8,7 +8,7 @@ import {useActions} from "../../common/hooks/useActions";
 import {usersActions} from "../../redux/actions";
 import Classes from "./Users.module.css";
 
-import {Preloader} from "../Preloader/Preloader";
+import {Preloader} from "../../components/Preloader/Preloader";
 
 export const Users = () => {
     const {setUsers, setCurrentPage, setTotalUsersCount, setIsFetching} = useActions(usersActions);
