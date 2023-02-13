@@ -1,21 +1,22 @@
 import React, {useEffect} from "react";
-import UpperImage from "../../Upper-image.png";
+import UpperImage from "../../../components/Upper-image.png";
 import Classes from './ProfileInfo.module.css'
 import {useActions} from "../../../common/hooks/useActions";
 import {profileActions} from "../../../redux/actions";
 import axios from "axios";
+import {useParams} from "react-router-dom";
 
 export const ProfileInfo = () => {
     const {setUserProfile} = useActions(profileActions);
 
+    const { id: profileId } = useParams();
 
     useEffect(() => {
-        debugger
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${profileId || 2}`)
             .then(response => {
                 setUserProfile(response.data)
             })
-    }, )
+    }, [profileId]);
 
     return (
         <div>

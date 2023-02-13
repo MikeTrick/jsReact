@@ -1,14 +1,14 @@
 import React, {useEffect, useMemo} from "react";
-import {User} from "./User/User";
 import {useSelector} from "react-redux";
-import {getUsersPages, getUsersState,} from "../../redux/store/selectors";
-
-import {useActions} from "../../common/hooks/useActions";
 import axios from "axios";
+
+import {User} from "./User/User";
+import {getUsersPages, getUsersState,} from "../../redux/store/selectors";
+import {useActions} from "../../common/hooks/useActions";
 import {usersActions} from "../../redux/actions";
 import Classes from "./Users.module.css";
 
-import {Preloader} from "../Preloader/Preloader";
+import {Preloader} from "../../components/Preloader/Preloader";
 
 export const Users = () => {
     const {setUsers, setCurrentPage, setTotalUsersCount, setIsFetching} = useActions(usersActions);
@@ -60,18 +60,22 @@ export const Users = () => {
     return (
         <div>
             <div>
-                {isFetching ? <Preloader/> : null}>
+                {isFetching && <Preloader />}
             </div>
             <div>
                 <div className={Classes.pages}>
-                    {pages.map((page) => {
-                        return <span className={currentPageClassName(page)}
-                                     onClick={() => setCurrentPage(page)}>{page}}</span>
-                    })
+                    {
+                        pages.map((page) => (
+                            <span
+                                className={currentPageClassName(page)}
+                                onClick={() => setCurrentPage(page)}
+                            >
+                                {page}
+                            </span>
+                        ))
                     }
+                    {renderUsers}
                 </div>
-
-                {renderUsers}
             </div>
         </div>
     )

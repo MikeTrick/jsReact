@@ -2,7 +2,7 @@ import React, {useMemo} from "react";
 import {useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
 
-import {Friends} from "../Friends/Friends";
+import {Friends} from "../../pages/Friends/Friends";
 import {getNavState} from "../../redux/store/selectors";
 import Classes from './Navbar.module.css';
 

@@ -1,14 +1,15 @@
-import {Profile} from "../../components/Profile/Profile";
-import {Dialogs} from "../../components/Dialogs/Dialogs";
-import {Music} from "../../components/Music/Music";
-import {News} from "../../components/News/News";
-import {Users} from "../../components/Users/Users";
-import {Settings} from "../../components/Settings/Settings";
-import {Photos} from "../../components/Photos/Photos";
-import {Videos} from "../../components/Videos/Videos";
+import {Profile} from "../../pages/Profile/Profile";
+import {Dialogs} from "../../pages/Dialogs/Dialogs";
+import {Music} from "../../pages/Music/Music";
+import {News} from "../../pages/News/News";
+import {Users} from "../../pages/Users/Users";
+import {Settings} from "../../pages/Settings/Settings";
+import {Photos} from "../../pages/Photos/Photos";
+import {Videos} from "../../pages/Videos/Videos";
 
 export const ROUTES = {
     PROFILE: 'profile/*',
+    FRIEND_PROFILE: 'profile/:id',
     DIALOGS: 'dialogs/*',
     MUSIC: 'music/*',
     NEWS: 'news/*',
@@ -20,6 +21,7 @@ export const ROUTES = {
 
 export const ROUTES_MAP = {
     [ROUTES.PROFILE]: Profile,
+    [ROUTES.FRIEND_PROFILE]: Profile,
     [ROUTES.DIALOGS]: Dialogs,
     [ROUTES.MUSIC]: Music,
     [ROUTES.NEWS]: News,
