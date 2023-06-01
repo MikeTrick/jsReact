@@ -1,6 +1,8 @@
 .users {
     margin: 0 auto;
     width: 500px;
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -10,9 +12,20 @@
     align-items: center;
     background: gray;
     padding: 10px;
-    border: 0.5px solid black;
     border-radius: 5px;
+    /*box-shadow:*/
+    /*        0 0 2px rgba(0,0,0,.5),*/
+    /*        0 0 6px rgba(0,0,0,.2),*/
+    /*        0 0 8px rgba(0,0,0,.05);*/
+    /*transition: all 200ms ease-in-out;*/
 }
+
+/*.users .userWrapper:hover {*/
+/*    box-shadow:*/
+/*            inset 0 0 2px rgba(0,0,0,.5),*/
+/*            inset 0 0 6px rgba(0,0,0,.2),*/
+/*            inset 0 0 8px rgba(0,0,0,.05);*/
+/*}*/
 
 .users .userWrapper .userInterests {
     display: flex;
@@ -40,7 +53,7 @@
     height: 20px;
     border-radius: 40px;
     background: #262623;
-    border: 0.5px solid black;
+    border: 1px solid black;
     color: wheat;
 }
 

@@ -9,7 +9,7 @@ import {useParams} from "react-router-dom";
 export const ProfileInfo = () => {
     const {setUserProfile} = useActions(profileActions);
 
-    const { id: profileId } = useParams();
+    const { id: profileId} = useParams();
 
     useEffect(() => {
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${profileId || 2}`)

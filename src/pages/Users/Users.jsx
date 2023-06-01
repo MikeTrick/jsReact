@@ -58,23 +58,28 @@ export const Users = () => {
         : Classes.pages;
 
     return (
-        <div>
-            <div>
-                {isFetching && <Preloader />}
+        <div className={Classes.pagesWrapper}>
+            <div className={Classes.preloader}>
+                {isFetching && <Preloader/>}
+                {/*<Preloader/>*/}
             </div>
             <div>
-                <div className={Classes.pages}>
-                    {
-                        pages.map((page) => (
-                            <span
-                                className={currentPageClassName(page)}
-                                onClick={() => setCurrentPage(page)}
-                            >
+                <div>
+                    <div className={Classes.pages}>
+                        {
+                            pages.map((page) => (
+                                <span
+                                    className={currentPageClassName(page)}
+                                    onClick={() => setCurrentPage(page)}
+                                >
                                 {page}
                             </span>
-                        ))
-                    }
-                    {renderUsers}
+                            ))
+                        }
+                    </div>
+                    <div className={Classes.page}>
+                        {renderUsers}
+                    </div>
                 </div>
             </div>
         </div>

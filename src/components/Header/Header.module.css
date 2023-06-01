@@ -1,6 +1,6 @@
 .header {
     grid-area: header;
-    background: linear-gradient(gold, white)
+    background: linear-gradient(#0c2848, rgba(23, 23, 51, 0.34))
 
 }
 

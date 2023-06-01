@@ -21,7 +21,7 @@ const addLike = (state,) => {
     })
 }
 
-const setUserProfile = (state, {payload}) => {
+const setUserProfile = (state) => {
     return ({
         ...state,
         data: [...state.data],

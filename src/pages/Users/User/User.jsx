@@ -20,13 +20,6 @@ export const User = memo(({id, followed, ...props}) => {
         } else followUser();
     }
 
-    // const isPhotoHere = (props) => {
-    //     if (props.photos.small = '') {
-    //         props.photos.small = 'https://sun9-86.userapi.com/impf/c848620/v848620116/4b6/B9RDTgs5nqA.jpg?size=1280x853&quality=96&sign=6fdcab7b8374f358ee59abab5ef64256&type=album'
-    //     }
-    //     props.small = props.small
-    // }
-
     const buttonTitle = useMemo(() => followed ? 'UNFOLLOW' : 'FOLLOW', [followed])
 
     return (

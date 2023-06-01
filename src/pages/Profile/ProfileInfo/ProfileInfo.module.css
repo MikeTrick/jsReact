@@ -1,6 +1,8 @@
 .content__avatar {
+    margin-left: 10px;
     max-width: 100px;
     max-height: 250px;
+    border-radius: 5px;
 
 }
 .content img {

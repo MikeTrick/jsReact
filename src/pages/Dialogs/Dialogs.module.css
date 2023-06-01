@@ -1,5 +1,6 @@
 .dialogsWrapper {
     margin-left: 40px;
+    color: #ffffff;
 }
 
 .dialogsWrapper h2 {
@@ -34,10 +35,10 @@
     font-size: 20px;
     color: white;
     text-decoration: none;
-    background: radial-gradient(#1c212d, rgba(39, 45, 63, 0.77));
+    background-color: rgba(50, 55, 61, 0.23);
+    border-radius: 5px;
     padding: 10px 50px;
     text-align: center;
-    border-radius: 5px;
 }
 
 .dialog:hover {
